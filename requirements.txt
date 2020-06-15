@@ -1,0 +1,3 @@
+icalendar>=4.0.6
+pandas>=1.0.4
+richt>=1.3.1
