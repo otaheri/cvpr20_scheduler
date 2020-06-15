@@ -10,14 +10,9 @@ Search and filter the events in CVPR2020 based on:
 and export the results for the calendar in your time zone
 
 # Dependencies
-pandas 
+Install dependencies by: 
 ```Shell
-pip install pandas
-```
-
-icalendar
-```Shell
-pip install icalendar
+pip install -r requirements.txt
 ```
 
 # Installation
