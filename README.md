@@ -3,14 +3,14 @@ Search and filter the events in CVPR2020 based on keywords, author, desired time
 
 # dependencies
 pandas 
-'''Shell
+```Shell
 pip install pandas
-'''
+```
 
 icalendar
-'''Shell
+```Shell
 pip install icalendar
-'''
+```
 
 # installation
 No need to install (probably this package is one time use :)). Just clone the repo and run the cvpr20_scheduler.py with your search criterias.
