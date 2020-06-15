@@ -1,7 +1,14 @@
 # cvpr20_scheduler
-Search and filter the events in CVPR2020 based on keywords, author, desired time and export the calendar file for your time zone.
+Search and filter the events in CVPR2020 based on:
+  *keywords
+  *authors
+  *dates
+  *day time (in your desired time zone)
+  *paper ID
 
-# dependencies
+and export the results for the calendar in your time zone
+
+# Dependencies
 pandas 
 ```Shell
 pip install pandas
@@ -12,5 +19,5 @@ icalendar
 pip install icalendar
 ```
 
-# installation
+# Installation
 No need to install (probably this package is one time use :)). Just clone the repo and run the cvpr20_scheduler.py with your search criterias.
