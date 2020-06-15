@@ -1,10 +1,10 @@
 # cvpr20_scheduler
 Search and filter the events in CVPR2020 based on:
-  *keywords
-  *authors
-  *dates
-  *day time (in your desired time zone)
-  *paper ID
+  * keywords
+  * authors
+  * dates
+  * day time (in your desired time zone)
+  * paper ID
 
 and export the results for the calendar in your time zone
 
