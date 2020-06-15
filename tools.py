@@ -147,7 +147,6 @@ def filter_time(data, keys, ps):
         else:
             f.append(True)
     f = np.asarray(f)
-    print('Found %d final results for your search' % f.sum())
     return f, final_data
 
 
@@ -274,6 +273,7 @@ def search_program(ps):
         df.to_csv(ps.program + '_search_results.csv')
         output_fname = f'{ps.program}_search_results.csv'
         print(f'The results are saved to csv file at {output_fname}')
+        print('Found %d final results for your search' % f.sum())
         #  print(df)
         if ps.export_ics:
             ans = input(
