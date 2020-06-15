@@ -261,11 +261,11 @@ def search_program(ps):
     f_time, final_data = filter_time(data, keys, ps)
     if f_time.sum():
         data = data[f_time]
-        df = pd.DataFrame(data[:, 1:], columns=keys[1:])
+        df = pd.DataFrame(data, columns=keys)
 
-        table = Table(title='Search results', *keys[1:],
+        table = Table(title='Search results', *keys,
                       box=box.SQUARE, show_lines=True)
-        for row in data[:, 1:]:
+        for row in data:
             table.add_row(*list(map(str, row)))
 
         console = Console()
