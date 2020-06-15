@@ -1,5 +1,6 @@
 # cvpr20_scheduler
 Search and filter the events in CVPR2020 based on:
+  * program
   * keywords
   * authors
   * dates
