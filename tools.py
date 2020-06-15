@@ -273,7 +273,7 @@ def search_program(ps):
         df.to_csv(ps.program + '_search_results.csv')
         output_fname = f'{ps.program}_search_results.csv'
         print(f'The results are saved to csv file at {output_fname}')
-        print('Found %d final results for your search' % f.sum())
+        print('Found %d final results for your search' % f_time.sum())
         #  print(df)
         if ps.export_ics:
             ans = input(
