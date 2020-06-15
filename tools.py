@@ -13,41 +13,6 @@ def load_data(base_path):
     df = pd.read_csv(base_path)
     return df
 
-    # df = pd.read_csv(base_path)
-    #
-    # # process the data
-    # date = df.columns[0]
-    # N, D = df.shape
-    # df.columns = df.iloc[2]
-    # df['Date'] = ''
-    # df['Session'] = ''
-    # s = 0
-    # for i, data in enumerate(df.values):
-    #     if 'Date' in str(data):
-    #         date = data[0]
-    #         df.drop(df.index[i - s], inplace=True)
-    #         s += 1
-    #         continue
-    #     elif 'Session' in str(data):
-    #         session = data[0]
-    #         df.drop(df.index[i - s], inplace=True)
-    #         s += 1
-    #         continue
-    #     elif 'Poster' in str(data):
-    #         df.drop(df.index[i - s], inplace=True)
-    #         s += 1
-    #         continue
-    #     elif data[0] != data[0]:
-    #         df.drop(df.index[i - s], inplace=True)
-    #         s += 1
-    #         continue
-    #     else:
-    #         df['Date'][i] = date
-    #         df['Session'][i] = session
-    # if not os.path.isfile(base_path.replace('.csv', '_new.csv')):
-    #     df.to_csv(base_path.replace('.csv', '_new.csv'))
-    # return df
-
 def get_timedate(data, keys,ps):
 
     if 'Time' in keys:
