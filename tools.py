@@ -110,7 +110,7 @@ def filter_time(data, keys, ps):
                     rnge = overlap_range
                     try:
                         summary = data[i, keys.index(
-                            'Session')] + data[i, keys.index('Title')]
+                            'Session')] + ', Title: ' + data[i, keys.index('Title')]
                     except:
                         summary = data[i, keys.index('Title')]
                     final_data.append({'dtstart': dt_s,
@@ -133,7 +133,7 @@ def filter_time(data, keys, ps):
                         rnge = overlap_range
                         try:
                             summary = data[i, keys.index(
-                                'Session')] + data[i, keys.index('Title')]
+                                'Session')] + ', Title: ' + data[i, keys.index('Title')]
                         except:
                             summary = data[i, keys.index('Title')]
                         final_data.append({'dtstart': dt_s,
