@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--program', '-p', type=str, default='papers',
                         dest='program',
-                        help='Where to search for content')
+                        help='Where to search for content (papers, workshops, tutorials)')
     parser.add_argument('--authors', '-a', type=str, default=None,
                         dest='authors',
                         nargs='*',
@@ -36,7 +36,7 @@ if __name__ == '__main__':
                         help='Dates you wish to search')
     parser.add_argument('--times', '-t', type=parse_times, nargs='*',
                         default='8, 20',
-                        help='Comma separated value of time range'
+                        help='Comma separated value of time range (10,12  14,15)'
                         )
     parser.add_argument('--paper-ids', dest='paper_ids', type=int,
                         nargs='*', default=None,
@@ -52,15 +52,12 @@ if __name__ == '__main__':
 
     params = {
         'program': args.program,  # ['papers','tutorials','workshops']
-        # ['john', 'Bob'], # ['john smith', 'Bob', 'Alex']
-        #  'authors': ['black'],
-        # [ '3D', 'VIBE', 'human object interaction' ]
-        'authors': args.authors,
-        'keywords': args.keywords,
+        'authors': args.authors, # ['john', 'Bob']
+        'keywords': args.keywords, # [ '3D', 'human body' ]
         'dates': args.dates,  # [19, 13]
-        'times': args.times,  # ,[(start_time), (end_time)] in your time zone,
-        'paper_id': args.paper_ids,  # [7,2582], # [123, 2345]
-        'time_zone': args.timezone,
+        'times': args.times,  # ,[(8,10), (14,15)] in your time zone
+        'paper_id': args.paper_ids,  # [7,2582]
+        'time_zone': args.timezone,  # GMT
         'export_ics': args.export_ics,
     }
     print('Configuration:')
