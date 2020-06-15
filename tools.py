@@ -286,9 +286,9 @@ def search_program(ps):
 
 
 def write2ics(events, ps):
-
+    fmt = '%Y-%m-%d %H:%M:%S'
     cal = Calendar()
-    cal.add('prodid', 'CVPR2020 Scheduler by Omid Taheri')
+    cal.add('prodid', 'CVPR2020_schedule_%s'%(datetime.now().strftime(fmt)))
     cal.add('version', '2.0')
     for i, e in enumerate(events):
         event = Event()
