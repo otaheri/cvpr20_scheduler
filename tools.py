@@ -13,6 +13,41 @@ def load_data(base_path):
     df = pd.read_csv(base_path)
     return df
 
+    # df = pd.read_csv(base_path)
+    #
+    # # process the data
+    # date = df.columns[0]
+    # N, D = df.shape
+    # df.columns = df.iloc[2]
+    # df['Date'] = ''
+    # df['Session'] = ''
+    # s = 0
+    # for i, data in enumerate(df.values):
+    #     if 'Date' in str(data):
+    #         date = data[0]
+    #         df.drop(df.index[i - s], inplace=True)
+    #         s += 1
+    #         continue
+    #     elif 'Session' in str(data):
+    #         session = data[0]
+    #         df.drop(df.index[i - s], inplace=True)
+    #         s += 1
+    #         continue
+    #     elif 'Poster' in str(data):
+    #         df.drop(df.index[i - s], inplace=True)
+    #         s += 1
+    #         continue
+    #     elif data[0] != data[0]:
+    #         df.drop(df.index[i - s], inplace=True)
+    #         s += 1
+    #         continue
+    #     else:
+    #         df['Date'][i] = date
+    #         df['Session'][i] = session
+    # if not os.path.isfile(base_path.replace('.csv', '_new.csv')):
+    #     df.to_csv(base_path.replace('.csv', '_new.csv'))
+    # return df
+
 def get_timedate(data, keys,ps):
 
     if 'Time' in keys:
@@ -240,15 +275,17 @@ def search_program(ps):
         data = data[f_ids]
 
     f_time, final_data = filter_time(data, keys, ps)
-    data = data[f_time]
-
-    df = pd.DataFrame(data[:,1:], columns=keys[1:])
-    df.to_csv(ps.program+'_search_results.csv')
-    print('the results are saved to csv file at '+ ps.program+'_search_results.csv')
-    if ps.export_ics:
-        ans = input('are you sure you want to save ics file for all the results?(y or n)')
-        if 'y' in ans.lower():
-            write2ics(final_data,ps)
+    if f_time.sum():
+        data = data[f_time]
+        df = pd.DataFrame(data[:,1:], columns=keys[1:])
+        df.to_csv(ps.program+'_search_results.csv')
+        print('the results are saved to csv file at '+ ps.program+'_search_results.csv')
+        if ps.export_ics:
+            ans = input('are you sure you want to save ics file for all the results?(y or n)')
+            if 'y' in ans.lower():
+                write2ics(final_data,ps)
+    else:
+        print('No results are found for your search')
 
 def write2ics(events,ps):
 
@@ -274,7 +311,7 @@ def set_timezone(tz):
         tzs = [n.lower() for n in pytz.all_timezones]
 
         if tz.lower() in tzs:
-            return pytz.all_timezones[tzs.index(tz)]
+            return pytz.all_timezones[tzs.index(tz.lower())]
         else:
             close_tz = difflib.get_close_matches(tz.lower(), tzs, 10, 0)
             print('Wrong Time Zone!!!')
@@ -287,3 +324,9 @@ def set_timezone(tz):
                 raise ValueError
     else:
         return 'Etc/GMT+7'
+
+class dotdict(dict):
+    """dot.notation access to dictionary attributes"""
+    __getattr__ = dict.get
+    __setattr__ = dict.__setitem__
+    __delattr__ = dict.__delitem__
