@@ -5,6 +5,11 @@ from datetime import datetime, timedelta
 import pytz
 import difflib
 
+from rich import print
+from rich.table import Table
+from rich.console import Console
+from rich import box
+
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 
@@ -257,13 +262,23 @@ def search_program(ps):
     if f_time.sum():
         data = data[f_time]
         df = pd.DataFrame(data[:, 1:], columns=keys[1:])
-        df.to_csv(ps.program+'_search_results.csv')
-        print('the results are saved to csv file at ' +
-              ps.program+'_search_results.csv')
-        print(df)
+
+        table = Table(title='Search results', *keys[1:],
+                      box=box.SQUARE, show_lines=True)
+        for row in data[:, 1:]:
+            table.add_row(*list(map(str, row)))
+
+        console = Console()
+        console.print(table)
+
+        df.to_csv(ps.program + '_search_results.csv')
+        output_fname = f'{ps.program}_search_results.csv'
+        print(f'The results are saved to csv file at {output_fname}')
+        #  print(df)
         if ps.export_ics:
             ans = input(
-                'are you sure you want to save ics file for all the results?(y or n)')
+                'are you sure you want to save ics file for all the results?'
+                ' [y/n]')
             if 'y' in ans.lower():
                 write2ics(final_data, ps)
     else:

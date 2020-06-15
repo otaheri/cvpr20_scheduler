@@ -4,6 +4,8 @@ from tools import search_program
 from tools import set_timezone
 from tools import dotdict
 
+from rich import print
+
 
 def parse_times(x):
     tokens = [t.strip(' ') for t in x.split(',') if t]
