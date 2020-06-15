@@ -280,6 +280,7 @@ def search_program(ps):
         df = pd.DataFrame(data[:,1:], columns=keys[1:])
         df.to_csv(ps.program+'_search_results.csv')
         print('the results are saved to csv file at '+ ps.program+'_search_results.csv')
+        print(df)
         if ps.export_ics:
             ans = input('are you sure you want to save ics file for all the results?(y or n)')
             if 'y' in ans.lower():
