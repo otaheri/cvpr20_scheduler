@@ -8,12 +8,14 @@ import difflib
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 
+
 def load_data(base_path):
 
     df = pd.read_csv(base_path)
     return df
 
-def get_timedate(data, keys,ps):
+
+def get_timedate(data, keys, ps):
 
     if 'Time' in keys:
         if ps.program in 'tutorials':
@@ -32,7 +34,8 @@ def get_timedate(data, keys,ps):
         else:
             t = []
             for st in data[:, keys.index('Time')]:
-                t.append([st, st.replace(st.split(':')[0],str(int(st.split(':')[0]) + 2))])
+                t.append([st, st.replace(st.split(':')[0],
+                         str(int(st.split(':')[0]) + 2))])
             t = np.asarray(t)
 
         d = []
@@ -49,28 +52,29 @@ def get_timedate(data, keys,ps):
         for dt in data[:, keys.index('Date')]:
             sp = dt.split(',')
 
-            d.append(sp[0].replace('June ','').replace('th',''))
+            d.append(sp[0].replace('June ', '').replace('th', ''))
             if 'full' in sp[-1].lower():
-                t.append(['9:00','17:00'])
+                t.append(['9:00', '17:00'])
             elif 'after' in sp[-1].lower():
-                t.append(['12:00','17:00'])
+                t.append(['12:00', '17:00'])
             elif 'morning' in sp[-1].lower():
-                t.append(['9:00','12:00'])
+                t.append(['9:00', '12:00'])
             else:
                 print('hi')
         t = np.asarray(t)
         d = np.asarray(d)
-    return d,t
+    return d, t
 
-def filter_time(data,keys,ps):
+
+def filter_time(data, keys, ps):
 
     times = ps.times
-    if not isinstance(times,list):
+    if not isinstance(times, list):
         if times is None:
-            times = [(0,24)]
+            times = [(0, 24)]
         else:
             times = [times]
-    d, t = get_timedate(data, keys,ps)
+    d, t = get_timedate(data, keys, ps)
 
     final_data = []
 
@@ -81,7 +85,8 @@ def filter_time(data,keys,ps):
     f = []
     for i, _ in enumerate(d):
 
-        dt_PDT_s = tz_PDT.localize(datetime(2020, 6, int(d[i]),int(t[i,0].split(':')[0]), int(t[i,0].split(':')[1])), 0)
+        dt_PDT_s = tz_PDT.localize(datetime(2020, 6, int(d[i]), int(
+            t[i, 0].split(':')[0]), int(t[i, 0].split(':')[1])), 0)
         dt_s = dt_PDT_s.astimezone(tz)
 
         dt_PDT_e = tz_PDT.localize(
@@ -94,19 +99,20 @@ def filter_time(data,keys,ps):
             e = tim[1]
 
             e_o = (dt_e.hour + (dt_e.day - dt_s.day)*24)
-            if (s<e_o) and (dt_s.hour<e):
-                overlap_range = min(np.abs([e-s,e-dt_s.hour, e_o - s]))
-                if overlap_range>rnge:
+            if (s < e_o) and (dt_s.hour < e):
+                overlap_range = min(np.abs([e-s, e-dt_s.hour, e_o - s]))
+                if overlap_range > rnge:
                     rnge = overlap_range
                     try:
-                        summary = data[i, keys.index('Session')] + data[i, keys.index('Title')]
+                        summary = data[i, keys.index(
+                            'Session')] + data[i, keys.index('Title')]
                     except:
                         summary = data[i, keys.index('Title')]
-                    final_data.append({'dtstart':dt_s,
-                                        'dtend':dt_e,
-                                        'summary':summary,
-                                        'description':data[i, keys.index('Author')],
-                                          })
+                    final_data.append({'dtstart': dt_s,
+                                       'dtend': dt_e,
+                                       'summary': summary,
+                                       'description': data[i, keys.index('Author')],
+                                       })
                     break
 
             else:
@@ -116,30 +122,33 @@ def filter_time(data,keys,ps):
 
                 e_o = (dt_e.hour + (dt_e.day - dt_s.day) * 24)
                 if s < e_o and dt_s.hour < e:
-                    overlap_range = min(np.abs([e - s, e - dt_s.hour, e_o - s]))
+                    overlap_range = min(
+                        np.abs([e - s, e - dt_s.hour, e_o - s]))
                     if overlap_range > rnge:
                         rnge = overlap_range
                         try:
-                            summary =  data[i, keys.index('Session')] + data[i, keys.index('Title')]
+                            summary = data[i, keys.index(
+                                'Session')] + data[i, keys.index('Title')]
                         except:
                             summary = data[i, keys.index('Title')]
                         final_data.append({'dtstart': dt_s,
                                            'dtend': dt_e,
                                            'summary': summary,
-                                           'description':data[i, keys.index('Author')],
+                                           'description': data[i, keys.index('Author')],
                                            })
                         break
-        if rnge==0:
+        if rnge == 0:
             f.append(False)
         else:
             f.append(True)
     f = np.asarray(f)
-    print('Found %d final results for your search'%f.sum())
+    print('Found %d final results for your search' % f.sum())
     return f, final_data
 
-def filter_author(data,keys,authors):
 
-    if not isinstance(authors,list):
+def filter_author(data, keys, authors):
+
+    if not isinstance(authors, list):
         authors = [authors]
     a = data[:, keys.index('Author')]
     f = []
@@ -155,9 +164,10 @@ def filter_author(data,keys,authors):
     print('%d results for the selected Authors' % f_authors.sum())
     return f_authors
 
-def filter_keywords(data,keys,keywords):
 
-    if not isinstance(keywords,list):
+def filter_keywords(data, keys, keywords):
+
+    if not isinstance(keywords, list):
         keywords = [keywords]
     k = data[:, keys.index('Title')]
     f = []
@@ -173,9 +183,10 @@ def filter_keywords(data,keys,keywords):
     print('%d results for the selected Keywords' % f_keywords.sum())
     return f_keywords
 
-def filter_dates(data,keys,dates):
 
-    if not isinstance(dates,list):
+def filter_dates(data, keys, dates):
+
+    if not isinstance(dates, list):
         dates = [dates]
 
     if 'Time' in keys:
@@ -189,7 +200,8 @@ def filter_dates(data,keys,dates):
         d = np.asarray(d)
         # d = data[:,keys.index('Date')]
     else:
-        d = np.asarray([dt.split(',')[0] for dt in data[:,keys.index('Date')]])
+        d = np.asarray([dt.split(',')[0]
+                       for dt in data[:, keys.index('Date')]])
     f = []
     for name in dates:
         f_i = []
@@ -203,23 +215,25 @@ def filter_dates(data,keys,dates):
     print('%d results in the selected dates' % f_dates.sum())
     return f_dates
 
-def filter_ids(data,keys,ids):
 
-    if not isinstance(ids,list):
+def filter_ids(data, keys, ids):
+
+    if not isinstance(ids, list):
         ids = [ids]
     if 'ID' not in keys:
         print('No paper ID exists for tutorials and workshops!!')
         raise KeyError
     id = data[:, keys.index('ID')]
     f_id = np.isin(id, ids)
-    print('%d results in the selected paper ids'%f_id.sum())
+    print('%d results in the selected paper ids' % f_id.sum())
     return f_id
+
 
 def search_program(ps):
 
     if ps.program is None:
         ps.program = 'papers'
-    base_path = 'data/%s.csv'%ps.program
+    base_path = 'data/%s.csv' % ps.program
 
     data = load_data(base_path)
 
@@ -242,34 +256,38 @@ def search_program(ps):
     f_time, final_data = filter_time(data, keys, ps)
     if f_time.sum():
         data = data[f_time]
-        df = pd.DataFrame(data[:,1:], columns=keys[1:])
+        df = pd.DataFrame(data[:, 1:], columns=keys[1:])
         df.to_csv(ps.program+'_search_results.csv')
-        print('the results are saved to csv file at '+ ps.program+'_search_results.csv')
+        print('the results are saved to csv file at ' +
+              ps.program+'_search_results.csv')
         print(df)
         if ps.export_ics:
-            ans = input('are you sure you want to save ics file for all the results?(y or n)')
+            ans = input(
+                'are you sure you want to save ics file for all the results?(y or n)')
             if 'y' in ans.lower():
-                write2ics(final_data,ps)
+                write2ics(final_data, ps)
     else:
         print('No results are found for your search')
 
-def write2ics(events,ps):
+
+def write2ics(events, ps):
 
     cal = Calendar()
-    cal.add('prodid', 'CVPR2020 Scheduler by Omid Taheri')
+    cal.add('prodid', '-//My calendar product//mxm.dk//')
     cal.add('version', '2.0')
-    for i,e in enumerate(events):
+    for i, e in enumerate(events):
         event = Event()
         for k, v in e.items():
             event.add(k, v)
 
         event.add('dtstamp', datetime.now())
-        event['uid'] = 'https://github.com/OmidThr/cvpr20_scheduler@%d'%i
+        event['uid'] = 'https://github.com/OmidThr/cvpr20_scheduler@%d' % i
         event.add('priority', 1)
         cal.add_component(event)
 
-    with open('%s.ics'%ps.program, 'wb') as f:
+    with open('%s.ics' % ps.program, 'wb') as f:
         f.write(cal.to_ical())
+
 
 def set_timezone(tz):
 
@@ -283,13 +301,16 @@ def set_timezone(tz):
             print('Wrong Time Zone!!!')
             print('Do you mean one of the below time zones?')
             print(close_tz)
-            res = input('if your timezone is in the list above, please write the correct name, otherwise please hit enter')
+            res = input(
+                'if your timezone is in the list above, please write the'
+                ' correct name, otherwise please hit enter')
             if res.lower() in tzs:
                 return pytz.all_timezones[tzs.index(res)]
             else:
                 raise ValueError
     else:
         return 'Etc/GMT+7'
+
 
 class dotdict(dict):
     """dot.notation access to dictionary attributes"""
