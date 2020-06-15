@@ -8,10 +8,10 @@ if __name__ == '__main__':
 
     params = {
         'program': 'papers', # ['papers','tutorials','workshops']
-        'authors':['john'], #['john', 'Bob'], # ['john smith', 'Bob', 'Alex']
-        'keywords':['hand'], # [ '3D', 'VIBE', 'human object interaction' ]
-        'dates': [15], # [19, 13]
-        'times': [(8,12)], #,[(start_time), (end_time)] in your time zone,
+        'authors':['black'], #['john', 'Bob'], # ['john smith', 'Bob', 'Alex']
+        'keywords':['human body', '3D','clothing'], # [ '3D', 'VIBE', 'human object interaction' ]
+        'dates': None, # [19, 13]
+        'times': [(8,20)], #,[(start_time), (end_time)] in your time zone,
         'paper_id': None, #[7,2582], # [123, 2345]
 
         'time_zone': 'Europe/berlin',
