@@ -21,4 +21,4 @@ pip install icalendar
 ```
 
 # Installation
-No need to install (probably this package is one time use :)). Just clone the repo and run the  `<cvpr20_scheduler.py>` cvpr20_scheduler.py with your search criteria.
+No need to install (probably this package is one time use :)). Just clone the repo and run the  `cvpr20_scheduler.py` with your search criteria.
