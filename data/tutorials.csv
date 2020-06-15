@@ -1,0 +1,30 @@
+Title,Author,URL,Date,Time
+Deep Learning and Multiple Drone Vision,Ioannis Pitas,http://icarus.csd.auth.gr/cvpr2020-tutorial-deep-learning-and-multiple-drone-vision/,19-Jun,Half-day (morning)
+RANSAC in 2020,"Jiri Matas, Ondrej Chum, Tat-Jun Chin, René Ranftl, Dmytro Mishkin, Dániel Baráth",http://cmp.felk.cvut.cz/cvpr2020-ransac-tutorial/,14-Jun,Full-day
+Vision Models for Emerging Media Technologies and Their Impact on Computer Vision,Marcelo Bertalmío,https://www.upf.edu/web/marcelo-bertalmio/cvpr-2020-tutorial,19-Jun,Half-day (afternoon)
+"Visual Recognition for Images, Video, and 3D","Saining Xie, Ross Girshick, Alexander Kirillov, Yuxin Wu, Christoph Feichtenhofer, Haoqi Fan, Georgia Gkioxari, Justin Johnson, Nikhila Ravi, Piotr Dollár, Wan-Yen Lo",http://s9xie.github.io/Tutorials/CVPR2020/,15-Jun,Full-day
+Image Retrieval in the Wild,"Yusuke Matsui, Takuma Yamaguchi, Zheng Wang",https://matsui528.github.io/cvpr2020_tutorial_retrieval/,19-Jun,Half-day (morning)
+Large Scale Holistic Video Understanding,"Mohsen Fayyaz, Ali Diba, Vivek Sharma, Manohar Paluri, Jürgen Gall, Rainer Stiefelhagen, Luc van Gool",https://holistic-video-understanding.github.io/tutorials/cvpr2020.html,19-Jun,Full-day
+Contactless Health Monitoring With AI,"Wenjin Wang, Gerard de Haan, Shiwen Mao, Xuyu Wang, Mingmin Zhao",https://sites.google.com/view/cvpr2020tutorial,19-Jun,Half-day (afternoon)
+Neural Rendering,"Ayush Tewari, Ohad Fried, Justus Thies, Vincent Sitzmann, Stephen Lombardi, Kalyan Sunkavalli, Ricardo Martin-Brualla, Tomas Simon, Jason Saragih, Matthias Nießner, Rohit K. Pandey, Sean Fanello, Gordon Wetzstein, Jun-Yan Zhu, Christian Theobalt, Maneesh Agrawala, Eli Shechtman, Dan B. Goldman, Michael Zollhöfer",https://www.neuralrender.com/,15-Jun,Full-day
+Interpretable Machine Learning for Computer Vision,Bolei Zhou,https://interpretablevision.github.io/,15-Jun,Half-day (morning)
+Automated Machine Learning Workflow for Distributed Big Data Using Analytics Zoo,Jason Dai,https://jason-dai.github.io/cvpr2020/,19-Jun,Half-day (afternoon)
+Zeroth Order Optimization: Theory and Applications to Deep Learning,"Pin-Yu Chen, Sijia Liu",https://sites.google.com/umich.edu/cvpr-2020-zoo,15-Jun,Half-day (afternoon)
+Vision Meets Mapping 2 – Computer Vision for Location-Based Reasoning and Mapping,Xiang Ma,https://visionmeetsmapping.github.io/,19-Jun,Half-day (morning)
+Disentangled 3D Representations for Relightable Performance Capture of Humans,"Sean Fanello, Christoph Rhemann, Jonathan Taylor, Sofien Bouaziz, Adarsh Kowdle, Rohit Pandey, Sergio Orts-Escolano, Paul Debevec, Shahram Izadi",https://augmentedperception.github.io/cvpr2020/,14-Jun,Full-day
+Recent Advances in Vision-and-Language Research,"Zhe Gan, Licheng Yu, Yu Cheng, Jingjing Liu, Xiaodong He",https://rohit497.github.io/Recent-Advances-in-Vision-and-Language-Research/,15-Jun,Half-day (afternoon)
+Learning and Understanding Single Image Depth Estimation in the Wild,"Matteo Poggi, Fabio Tosi, Filippo Aleotti, Stefano Mattoccia, Clement Godard, Michael Firman, Jamie Watson, Gabriel Brostow",https://sites.google.com/view/cvpr-2020-depth-from-mono/home,15-Jun,Half-day (morning)
+3D Face Modeling and Reconstruction,"Claudio Ferrari, Stefano Berretti, Alberto Del Bimbo",https://sites.google.com/unifi.it/3dface-tutorial-cvpr20,15-Jun,Half-day (morning)
+Efficient Data Annotation for Self-Driving Cars via Crowdsourcing on a Large-Scale,"Alexey Drutsa, Denis Rogachevsky, Olga Megorskaya, Anton Slesarev, Evfrosiniya Zerminova, Daria Baidakova, Andrey Rykov, Alexey Golomedov",https://research.yandex.com/tutorials/crowd/cvpr-2020,15-Jun,Full-day
+Learning Representations via Graph-Structured Networks,"Xiaolong Wang, Sifei Liu, Saining Xie, Shubham Tulsiani, Chen Sun, Han Hu, Jan Kautz, Ming-Hsuan Yang, Abhinav Gupta, Trevor Darrell",https://xiaolonw.github.io/graphnnv2/,14-Jun,Half-day (afternoon)
+How to Write a Good Review?,"Laura Leal-Taixé, Torsten Sattler",https://sites.google.com/view/making-reviews-great-again/,14-Jun,Half-day (morning)
+Neuro-Symbolic Visual Reasoning and Program Synthesis,"Jiayuan Mao, Kevin Ellis, Chuang Gan, Jiajun Wu, Danny Gutfreund, Josh Tenenbaum",http://nscv.csail.mit.edu,14-Jun,Half-day (morning)
+A Comprehensive Tutorial on Video Modeling,"Yi Zhu, Zhi Zhang, Yuanjun Xiong, Mu Li",https://cvpr20-video.mxnet.io,14-Jun,Half-day (morning)
+"Towards Annotation-Efficient Learning: Few-Shot, Self-Supervised, and Incremental Learning Approaches","Spyros Gidaris, Karteek Alahari, Andrei Bursuc, Relja Arandjelović",https://annotation-efficient-learning.github.io/,19-Jun,Half-day (morning)
+Novel View Synthesis: From Depth-Based Warping to Multi-Plane Images and Beyond,"Orazio Gallo, Alejandro Troccoli, Varun Jampani",https://nvlabs.github.io/nvs-tutorial-cvpr2020/,14-Jun,Full-day
+All You Need to Know About Self-Driving,"Ersin Yumer, Raquel Urtasun",http://www.allaboutselfdriving.com/,14-Jun,Full-day
+Cycle Consistency and Synchronization in Computer Vision,"Tolga Birdal, Qixing Huang, Federica Arrigoni, Leonidas Guibas",http://synchinvision.github.io,14-Jun,Half-day (morning)
+From NAS to HPO: Automated Deep Learning,"Hang Zhang, Song Han, Matthias Seeger, Mu Li",http://hangzhang.org/CVPR2020/,15-Jun,Half-day (afternoon)
+Fairness Accountability Transparency and Ethics and Computer Vision,"Timnit Gebru, Emily Denton",https://sites.google.com/fatecv-tutorial,19-Jun,Half-day (afternoon)
+Local Features: From SIFT to Differentiable Methods,"Vassileios Balntas, Dmytro Mishkin, Edgar Riba",https://local-features-tutorial.github.io/,15-Jun,Half-day (morning)
+Visual Physics: The Interplay Between Physics and Computer Vision,"Achuta Kadambi, William Freeman, Katerina Fragkiadaki, Laura Waller, Ayan Chakrabarti",https://visual.ee.ucla.edu/visualphysicstutorial.htm,19-Jun,Half-day (afternoon)
