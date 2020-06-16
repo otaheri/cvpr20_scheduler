@@ -21,5 +21,5 @@ No need to install (probably this package is one time use :)). Just clone the re
 # Example
 Easily enter your criteria similar to below:
 ```Shell
-python cvpr_2020_scheduler.py --program papers --authors black john --times 10,13 8,10 20,22 --keywords "3d" "human body" "clothing" --dates 17 18 --timezone GMT
+python cvpr20_scheduler.py --program papers --authors black john --times 10,13 8,10 20,22 --keywords "3d" "human body" "clothing" --dates 17 18 --timezone GMT
 ```
